@@ -35,7 +35,7 @@ public class Assignement1 {
 		driver.manage().window().maximize();
 
 		// Implicit wait
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
 
 		// URL
 		driver.navigate().to("https://www.makemytrip.com/");
@@ -160,6 +160,7 @@ public class Assignement1 {
 		driver.findElement(By.xpath("//*[@id=\"top-banner\"]/div[2]/div/div/div[2]/p/a")).click();
 		System.out.println("--Search button is clicked");
 		System.out.println("-----------------------------------------------------------------------------");
+		Thread.sleep(2000);
 
 		// Click on Book Button
 		System.out.println("<<<<<<<<<<   AVAILABLE CABS  >>>>>>>>>>");
@@ -171,6 +172,12 @@ public class Assignement1 {
 		System.out.println("--Book button is clicked");
 		System.out.println("-----------------------------------------------------------------------------");
 
+		// Get pickup schedule
+		WebElement sch = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/div/div[3]"));
+		wait.until(ExpectedConditions.visibilityOf(sch));
+		System.out.println("Schedule: " + sch.getText());
+		System.out.println("");
+		
 		// Enter pickup details
 		System.out.println("<<<<<<<<<<   PICKUP DETAILS  >>>>>>>>>>");
 		System.out.println("");
